@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Verificación de Certificado</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        text-align: center;
+        padding: 40px;
+    }
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        max-width: 500px;
+        margin: auto;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+        color: #0d6efd;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 12px;
+        width: 100%;
+        background: #0d6efd;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .resultado {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 6px;
+        display: none;
+    }
+    .ok {
+        background: #e7f5ff;
+        color: #084298;
+    }
+
+    .error {
+        background: #fde2e1;
+        color: #842029;
+    }
+    .btn-descargar {
+        background: #198754;
+        margin-top: 15px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2><i class="fa-solid fa-certificate"></i> Verificación de Certificado</h2>
+
+    <input type="text" id="codigo" placeholder="Ingrese código del certificado">
+
+    <button onclick="verificar()">
+        <i class="fa-solid fa-magnifying-glass"></i> Verificar certificado
+    </button>
+
+    <div id="resultado" class="resultado"></div>
+</div>
+
+<script>
+const certificados = {
+    "12345": {
+        curso: "SALUD INTERCULTURAL",
+        nombre: "GLORIA DAMARIS LINARES SÁENZ",
+        fecha: "20 de marzo del 2026",
+        archivo: "certificado1.pdf"
+    },
+    "22222": {
+        curso: "SALUD PÚBLICA",
+        nombre: "JUAN PEREZ",
+        fecha: "10 de febrero del 2026",
+        archivo: "certificado1.pdf"
+    },
+    "44577184-1": {
+        curso: "BIOSEGURIDAD HOSPITALARIA",
+        nombre: "MANTILLA CERQUIN, LUIS ALBERTO",
+        fecha: "28 de febrero del 2025",
+        archivo: "https://drive.google.com/uc?export=download&id=1cF7aFcQQQfcQHbk5Z8FbBSSEKRSfZs50"
+    },
+    "72281648-1": {
+        curso: "BIOSEGURIDAD HOSPITALARIA",
+        nombre: "SANCHEZ VILLA, MARISOL",
+        fecha: "28 de febrero del 2025",
+        archivo: "https://drive.google.com/uc?export=download&id=1Y_bEvRG3Nlik6611VSByQCghgIW0UH31"
+    },
+    "72281648-2": {
+        curso: "PRIMEROS AUXILIOS",
+        nombre: "SANCHEZ VILLA, MARISOL",
+        fecha: "28 de febrero del 2025",
+        archivo: "https://drive.google.com/uc?export=download&id=1bj-oscTIXjwqcprSbLGbP812m9nAcj9I"
+    },
+    "48295755-1": {
+        curso: "PRIMEROS AUXILIOS",
+        nombre: "BARDALES DIAZ, JHIMMY HERMES",
+        fecha: "28 de febrero del 2025",
+        archivo: "certificado1.pdf"
+    },
+     "77133960-1": { curso: "PRIMEROS AUXILIOS", 
+        nombre: "MANTILLA CUEVA, MIGUEL ANGEL", 
+        fecha: "03, 04 Y 05 de Marzo del 2025", 
+        archivo: "https://drive.google.com/uc?export=download&id=12Zu1YlcEqWv0YItuJAWPTIwowxRJuFDU" 
+    },
+     "11111": {
+        curso: "SALUD PÚBLICA",
+        nombre: "ALEX VARGAS CARRASCO",
+        fecha: "10 de febrero del 2026",
+        archivo: "certificado1.pdf"
+    }
+};
+
+function verificar() {
+    const codigo = document.getElementById("codigo").value.trim();
+    const resultado = document.getElementById("resultado");
+
+    if (certificados[codigo]) {
+        let data = certificados[codigo];
+
+        resultado.className = "resultado ok";
+        resultado.style.display = "block";
+
+        resultado.innerHTML = `
+            <strong><i class="fa-solid fa-circle-check"></i> Certificado válido</strong><br><br>
+
+            <b>Curso:</b> ${data.curso}<br>
+            <b>Nombre:</b> ${data.nombre}<br>
+            <b>Fecha:</b> ${data.fecha}<br>
+
+            <button class="btn-descargar" onclick="descargar('${data.archivo}')">
+                <i class="fa-solid fa-download"></i> Descargar certificado
+            </button>
+        `;
+    } else {
+        resultado.className = "resultado error";
+        resultado.style.display = "block";
+        resultado.innerHTML = "<i class='fa-solid fa-circle-xmark'></i> Código no válido";
+    }
+}
+
+function descargar(archivo) {
+    window.open(archivo, "_blank");
+}
+</script>
+
+</body>
+</html>
