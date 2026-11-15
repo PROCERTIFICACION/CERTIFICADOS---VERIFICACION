@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -120,6 +121,7 @@ const certificados = [
         codigo: "26707595",
         curso: "RCP y Primeros Auxilios",
         nombre: "BRAVO CABANILLAS, JOSÉ LUIS",
+        DNI: "26707595",
         fecha: "del 20 al 25 de enero del 2026",
         archivo: "https://drive.google.com/uc?export=download&id=1mvL-FZxzIrj2H4LkK5ABKcYH3dkMlwFF"
     },
@@ -141,6 +143,7 @@ const certificados = [
         codigo: "71766830-1",
         curso: "CAPACITACIÓN DESCENTRALIZADA PARA FORTALECER CAPACIDADES EN INMUNIZACIONES Y MANEJO DE LA CADENA DE FRÍO",
         nombre: "GLORIA DAMARIS, LINARES SÁENZ",
+        DNI: "71766830",
         fecha: "del 09 al 13 de febrero del 2026",
         archivo: "https://drive.google.com/uc?export=download&id=1nbIll4uz8-AeI-oIZBYqWqSFW6xitbQO"
     },
@@ -148,6 +151,7 @@ const certificados = [
         codigo: "GL1421",
         curso: "OFIMÁTICA PROFESIONAL",
         nombre: "GLORIA DAMARIS, LINARES SÁENZ",
+         DNI: "71766830",
         fecha: "del 02 de enero al 29 de marzo de 2025",
         archivo: "https://drive.google.com/uc?export=download&id=199Z0zE4BGMh6wUkVQ4SO_kKVZnUi19wc"
     },
@@ -155,6 +159,7 @@ const certificados = [
         codigo: "LIN007",
         curso: "RCP y Primeros Auxilios",
         nombre: "GLORIA DAMARIS, LINARES SÁENZ",
+        DNI: "71766830",
         fecha: "del 20 al 25 de enero del 2026",
         archivo: "https://drive.google.com/uc?export=download&id=1FD8d8Y6CZMKuggTxl5qcrBtGczgfAG7V"
     },
@@ -162,6 +167,7 @@ const certificados = [
         codigo: "71766830",
         curso: "RCP y Tratamiento Primario de heridas",
         nombre: "GLORIA DAMARIS, LINARES SÁENZ",
+        DNI: "71766830",
         fecha: "del 07 al 11 de diciembre del 2025",
         archivo: "https://drive.google.com/uc?export=download&id=1htOKlA-kL_Zl7XLQ0IwkwIFz0KvTUDuL"
     },
@@ -169,6 +175,7 @@ const certificados = [
         codigo: "LIN02Z",
         curso: "JORNADA NACIONAL DE ACTUALIZACIÓN EN BIOSEGURIDAD, IAAS Y MANEJO SEGURO DE RESIDUOS HOSPITALARIOS",
         nombre: "GLORIA DAMARIS, LINARES SÁENZ",
+        DNI: "71766830",
         fecha: "del 04 al 12 de marzo del 2026",
         archivo: "https://drive.google.com/uc?export=download&id=1pb8oFxplbhLt3e_ciNd3k787Y2fapUvZ"
     },
@@ -176,6 +183,7 @@ const certificados = [
         codigo: "19321989",
         curso: "RCP y Tratamiento Primario de heridas",
         nombre: "GUMERCINDO VÁSQUEZ GIL",
+         DNI: "19321989",
         fecha: "del 05 al 09 de enero del 2026",
         archivo: "https://drive.google.com/uc?export=download&id=1T30X-lfXhPyOtgukX4KlZdLqVNFzy_XU"
     },
@@ -475,6 +483,7 @@ function verificar() {
                 <div style="margin-bottom:15px; padding:10px; background:#fff; border-radius:6px;">
                     <b>Curso:</b> ${data.curso}<br>
                     <b>Nombre:</b> ${data.nombre}<br>
+                    <b>DNI:</b> ${data.DNI}<br>
                     <b>Fecha:</b> ${data.fecha}<br>
 
                     <button class="btn-descargar" onclick="descargar('${data.archivo}')">
